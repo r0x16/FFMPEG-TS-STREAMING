@@ -31,14 +31,27 @@ En función de si se ha habilitado TSPLAY o no, el script realizará streaming d
 Para hacer streaming de un video con FFMPEG usando 4 hilos, el nivel de log "warning", un tamaño de paquete de 1200, el nombre de servicio "MyService" y el nombre del proveedor "MyProvider", se puede utilizar el siguiente comando:
 
 ```bash
-./script.sh -l warning -t 4 -s MyService -p MyProvider -z 1200 192.168.0.1:1234 /path/to/video.mp4
+./play.sh -l warning -t 4 -s MyService -p MyProvider -z 1200 192.168.0.1:1234 /path/to/video.mp4
 ```
 
 Para hacer streaming de un video usando TSPLAY, se puede utilizar el siguiente comando:
 
 ```bash
-./script.sh --tsplay 192.168.0.1:1234 /path/to/video.ts
+./play.sh --tsplay 192.168.0.1:1234 /path/to/video.ts
 ```
+
+Los únicos parámetros que son obligatorios son la dirección de destino y la ruta al video.
+
+```bash
+./play.sh 192.168.0.1:1234 /path/to/video.mp4
+```
+
+> En este caso se utilizarán los valores por defecto para el resto de los parámetros.
+> - log level: "fatal"
+> - threads: 2
+> - service name: "No_client"
+> - provider name: "No_provider"
+> - packet size: 1316
 
 ## Nota
 
